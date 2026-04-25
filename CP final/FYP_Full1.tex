@@ -1,0 +1,498 @@
+\documentclass[ 12pt,a4paper,twocolumn,fleqn]{report}
+\usepackage{graphicx}
+\usepackage[a4paper,top=20mm, bottom=30mm, left=10mm, right=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[]{algorithm2e}
+\usepackage{color}
+\usepackage{fancybox}
+\usepackage{lastpage}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\pagestyle{fancy}
+\usepackage{lineno}
+\usepackage{xtab,booktabs}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{tocloft} % <================================================
+\addtolength{\cftaftertoctitleskip}{-\baselineskip} % <=================
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+\setlength\columnsep{25pt}
+\makeatletter
+\g@addto@macro{\normalsize}{%
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}}
+\makeatother
+\mathindent=0.0pt
+\usepackage{float}
+\renewcommand{\baselinestretch}{1.0}
+\pagenumbering{global}
+\fancypagestyle{myfooter}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[L]{Department of CSE} % left footer
+    \fancyfoot[R]{\protect\thepage} % right footer with \protect
+    \renewcommand{\headrulewidth}{0pt} % remove header line
+    \renewcommand{\footrulewidth}{0.4pt} % footer line width
+}
+
+% Redefine plain page style for chapters
+\fancypagestyle{plain}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[R]{\protect\thepage} % right footer with \protect
+    \renewcommand{\headrulewidth}{0pt} % remove header line
+    \renewcommand{\footrulewidth}{0pt} % remove footer line
+}
+
+% Define a new page style combining fancy and myfooter
+\fancypagestyle{combined}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead{} % clear header fields
+    \fancyhead[L]{GridOne: An Integrated Multi-Region Framework for Power Grid Load Forecasting} % fancy header content
+    \fancyfoot[L]{Department of CSE (AI \& ML), SOE, DSU} % left footer
+    \fancyfoot[R]{\protect\thepage} % right footer with \protect
+    \renewcommand{\headrulewidth}{0.4pt} % header line width
+    \renewcommand{\footrulewidth}{0pt} % footer line width
+}
+\begin{document}
+
+\fancyfoot[R]{Page \thepage}  
+\pagestyle{plain}
+%\chead{}
+
+\onehalfspacing
+\onecolumn
+\begin{center}
+    \huge\textbf{DAYANANDA SAGAR UNIVERSITY} \\
+    \large\textbf{Devarakaggalahalli, Harohalli,
+Kanakapura Road,
+Bengaluru South Dt. – 562 112 }
+\end{center}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{image/SCHOOL OF ENGINEERING_c.png} % Adjust the file name and path as needed
+\end{figure}
+\begin{center}
+    \Large\textbf{Bachelor of Technology} \\
+    \normalsize\textbf{in} \\
+    \large\textbf{COMPUTER SCIENCE AND ENGINEERING} \\
+    \large\textbf{(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)}
+\end{center}
+\begin{center}
+    \large\textbf{A Project Report On} \\
+    \large\textbf{ GridOne: An Integrated Multi-Region Framework for Power Grid Load Forecasting}
+\end{center}
+
+\begin{center}
+    \small\textbf{By} \\
+    \normalsize\textbf{PULKIT SINGH - ENG20AM0050} \\
+    \normalsize\textbf{VISWAMBER PRASAD - ENG20AM0060} \\
+    \normalsize\textbf{YASH M NARULE - ENG20AM0063} 
+
+\end{center}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.11\textwidth]{image/Logo of AIML.jpg} % Adjust the file name and path as needed
+\end{figure}
+\begin{center}
+    \normalsize\textbf{Under the supervision of} \\
+    \normalsize\textbf{Prof. UDAYA BHASKARA N} \\
+    \normalsize\textbf{Assistant Professor}\\
+    \normalsize\textbf{Computer Science \& Engineering (AI \& ML)}
+\end{center}
+\vfill
+\begin{center}
+
+    %\normalsize\textbf{DEPARTM%ENT OF COMPUTER SCIENCE \& ENGINEERING} \\
+    %\normalsize\textbf{(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)} \\
+   % \vspace{5mm}
+    \normalsize\textbf{SCHOOL OF ENGINEERING} \\
+    %\normalsize\textbf{DAYANANDA SAGAR UNIVERSITY} \\
+   % \vspace{2mm}
+   % \normalsize\textbf{(2025 -- 2026)}
+\end{center}
+
+
+
+\newpage
+  \pagestyle{plain}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+\textcolor{blue}{\LARGE\textbf{{DAYANANDA SAGAR UNIVERSITY}}} \\
+\vspace{2mm}
+\includegraphics[width=1\textwidth]{image/certificate.png} \\
+\begin{center}
+    \large\textbf{Department of Computer Science \& Engineering}\\
+    \large\textbf{(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)}\\
+    \small\textbf{Devarakaggalahalli, Harohalli,
+Kanakapura Road,
+Bengaluru South Dt. – 562 112\\}
+    \small\textbf{Karnataka, India}
+\end{center}
+\vspace{5mm}
+\Large{\underline{\textbf{CERTIFICATE}}} \\
+  \end{center}
+  \vspace{5mm}
+\normalsize
+This is to certify that the project entitled \textbf{“GridOne: An Integrated Multi-Region Framework for Power Grid Load Forecasting”} is carried out by \textbf{PULKIT SINGH (ENG20AM0050), VISWAMBE RPRASAD (ENG20AM0060),YASH M NARULE (ENG20AM0063)}, 
+bonafide students of Bachelor of Technology in Computer Science and Engineering at the School of Engineering, Dayananda Sagar University, Bangalore, in partial fulfillment for the award of a degree in Bachelor of Technology in Computer Science and Engineering, during the year 
+\textbf{2025 \-- 2026}.\\
+
+\noindent
+\begin{minipage}[t]{0.31\textwidth}
+\small
+  \textbf{Prof. UdayabhaskaraN}\\
+  Assistant Professor\\
+  Dept. of CSE (AI\&ML)\\
+  School of Engineering\\
+  Dayananda Sagar University\\
+  \\
+  Signature .........................\\
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\small
+  \textbf{Dr. Vinutha N \& Prof. Pradeep Kumar K}\\
+  Project Co-ordinator\\
+  Dept. of CSE (AI\&ML)\\
+  School of Engineering\\
+  Dayananda Sagar University\\
+  \\
+  Signature .........................\\
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.34\textwidth}
+\small
+  \textbf{Dr. Jayavrinda Vrindavanam}\\
+  Professor \& Chairperson\\
+  Dept. of CSE (AI\&ML)\\
+  School of Engineering\\
+  Dayananda Sagar University \\
+  \\
+  Signature .........................\\
+\end{minipage}
+
+
+
+\vspace{10mm}
+\text{Name of the Examiners:}
+\hfill
+\vspace{5mm}
+\text{Signature with date:} \\
+\vspace{5mm}
+\text{1...........................}
+\hfill{.............................} \\
+\vspace{5mm}
+\text{2.............................} 
+\hfill{.............................} \\
+\vspace{5mm}
+\text{3.............................} 
+\hfill{.............................} 
+
+\newpage
+  \pagestyle{plain}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+  \begin{center}
+    \huge\textbf{DECLARATION}
+\end{center}
+\vspace{15mm}
+We, \textbf{PULKIT SINGH (ENG20AM0050),VISWAMBER PRASAD (ENG20AM0060),
+ YASH M NARULE (ENG20AM0063)}, are students of the seventh semester B.Tech in Computer Science and Engineering (AI \& ML) at the School of Engineering, Dayananda Sagar University. We hereby declare that the Major Project titled \textbf{“GridOne: An Integrated Multi-Region Framework for Power Grid Load Forecasting”} has been carried out by us and submitted in partial fulfillment for the award of a degree in \textbf{Bachelor of Technology} in \textbf{Computer Science and Engineering} during the academic year \textbf{2025--2026}.
+\vspace{15 mm}
+
+
+\noindent
+\begin{minipage}{0.8\textwidth}
+    \textbf{Student:} \hfill\textbf{Signature}\\
+    
+    \textbf{Name 1:} PULKIT SINGH\\ \textbf{USN:} ENG20AM0050 \\
+    
+    \textbf{Name 2:} VISWAMBER PRASAD \\ \textbf{USN:} ENG20AM0060 \\
+    
+    \textbf{Name 3:} YASH M NARULE \\ \textbf{USN:} ENG20AM0063 \\
+
+\end{minipage}
+
+\begin{flushleft}
+    \textbf{Place:} Bangalore \\
+    \textbf{Date:} 
+\end{flushleft}
+
+
+\newpage
+  \pagestyle{plain}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+\huge\textbf{ACKNOWLEDGEMENT}
+\end{center}
+\vspace{15mm}
+\normalsize
+It is a great pleasure for us to acknowledge the assistance and support of many individuals who have been responsible for the successful completion of this project work.
+First, we take this opportunity to express our sincere gratitude to School of Engineering\& Technology, Dayananda Sagar University for providing us with a great opportunity to pursue our Bachelor’s degree in this institution.
+\\
+\hfill
+\\
+We would like to thank \textbf{ Dr. Udaya Kumar Reddy K R, Dean, School of Engineering \&
+Technology, Dayananda Sagar University }for his constant encouragement and expert advice.
+It is a matter of immense pleasure to express our sincere thanks to\textbf{ Dr. Jayavrinda
+Vrindavanam, Department Chairman, Computer Science and Engineering (Artificial
+Intelligence and Machine Learning), Dayananda Sagar University}, for providing right academic guidance that made our task possible.
+\\
+\hfill
+\\
+We would like to thank our guide  \textbf{Prof. Udaya Bhaskar N, Assistant Professor, Dept. of
+Computer Science and Engineering of Artificial Intelligence and Machine Learning, Dayananda Sagar University} for sparing his valuable time to extend help in every step of our
+project work, which paved the way for smooth progress and the fruitful culmination of the project.
+\\
+\hfill
+\\
+We would like to thank our \textbf{Project Coordinator Dr. Vinutha N \& Prof. Pradeep Kumar K} as well as all the staff members
+of Computer Science and Engineering (AI\& ML) for their support.
+We are also grateful to our family and friends who provided us with every requirement
+throughout the course.
+We would like to thank one and all who directly or indirectly helped us in the Project work
+
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\tableofcontents{\protect\enlargethispage*{\baselineskip}}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+\huge\textbf{LIST OF FIGURES}
+\end{center}
+\vspace{15mm}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+     \hline
+     Fig .Number & Figure Description & Page Number \\
+     \hline
+     Fig 4.1 &Design Architecture & 14 \\
+     \hline
+     Fig 4.2 &CNN Architecture& 14 \\
+     \hline
+     Fig 4.3 &Placement of Electrodes& 17\\
+     \hline
+     Fig 6.1  &Working of SEMG& 27\\
+     \hline
+      Fig 6.2  &Sample Sensor Output& 28\\
+     \hline
+     Fig 7.1 &Graph Displaying Accuracy of Different Machine Learning Models & 31 \\
+     \hline
+     Fig 7.2& Graph Displaying Accuracy of Different Deep Learning Models
+&32 \\
+     \hline
+     Fig 7.3 &Model loss vs Epoch & 33 \\
+     \hline
+     Fig 7.4& Accuracy Matrix of CNN Model & 33\\
+     \hline
+    \end{tabular}
+\end{center}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+\huge\textbf{LIST OF TABLES}
+\end{center}
+\vspace{15mm}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+     \hline
+     Table Number &Table Description &Page Number \\
+     \hline
+     Table 7.1 &Accuracy of different machine learning
+models
+& 32 \\
+     \hline
+     Table 7.2 &Accuracy of different Deep learning
+models
+& 33 \\
+     \hline
+    \end{tabular}
+\end{center}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+    \huge\textbf{ABSTRACT}
+\end{center}
+\vspace{15mm}
+
+GridOne is an open-source, multi-region, multi-model electricity load forecasting framework for power grid research and decision-making. The framework provides a unified interface for training, evaluating, and deploying a broad spectrum of forecasting models — ranging from classical statistical approaches such as SARIMA to state-of-the-art deep learning architectures including the TiRex (xLSTM-based) foundation model and the Decomposition Linear (DLinear) model. GridOne is designed to operate across two geographically and structurally distinct power markets: the United States electricity grid (ISO market-level, hourly granularity) and the Indian State-level grid (daily granularity, spanning all 37 States and Union Territories). The system supports GPU-accelerated training, interactive visualization via Plotly, and incorporates rigorous statistical validation including the Diebold-Mariano test and Nash-Sutcliffe Efficiency for robust model comparison. This study highlights the importance of combining machine learning methods with load signals, which could lead to improvements in energy grid forecasting.
+
+\newpage
+    \pagestyle{combined}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+  \pagenumbering{arabic}
+\chapter{INTRODUCTION}
+Accurate electricity load forecasting is fundamental to the reliable and economical operation of modern power grids. Grid operators, independent system operators (ISOs), and energy planners depend on short-term and medium-term load forecasts to schedule generation assets, optimize transmission, prevent outages, and ensure economic dispatch. As renewable energy penetration increases and demand patterns grow more complex, the forecasting models that once sufficed — simple auto-regressive or linear statistical models — are increasingly inadequate.
+
+The challenge of electricity load forecasting is multifaceted:
+\begin{itemize}
+    \item \textbf{Non-stationarity:} Demand patterns shift with seasons, economic growth, and societal changes (e.g., remote work trends, EV adoption).
+    \item \textbf{Multi-scale seasonality:} Demand exhibits strong intraday, weekly, and annual cycles that are difficult to capture simultaneously.
+    \item \textbf{External dependencies:} Weather, public holidays, industrial activity, and grid maintenance all influence load in ways that are difficult to parametrize.
+    \item \textbf{Spatial heterogeneity:} Different geographic regions, states, or ISOs exhibit fundamentally different load profiles, even under similar external conditions.
+\end{itemize}
+
+GridOne addresses these challenges by adopting a comparative, multi-model framework. Rather than prescribing a single "best" model, the system allows researchers and operators to evaluate multiple approaches simultaneously against the same dataset, with consistent feature engineering, training splits, and evaluation metrics. This enables data-driven model selection suited to the specific characteristics of each market.
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\normalsize
+\chapter{PROBLEM DEFINITION AND OBJECTIVE}
+\section{Problem Definition}
+\vspace{2mm}
+Early detection of energy spikes and an accurate prediction of grid load is a significant challenge. Promptly identifying peak loads is crucial for initiating energy generation that can significantly enhance grid stability. Currently, there exists a need for a precise and reliable forecasting approach to predict the grid load early, when action might have the most influence, despite the complexities of the data.
+
+\section{System Architecture Overview}
+\vspace{2mm}
+GridOne follows a modular, layered software architecture. The application is structured as a Python package (\texttt{gridone}) with clear separation of concerns across the following functional layers:
+\begin{itemize}
+    \item \texttt{app.py}: Main Streamlit entrypoint. Routing between US and India modes.
+    \item \texttt{config.py}: Global configuration (availability flags, state parameters, holiday calendars).
+    \item \texttt{data.py}: Data acquisition, synthetic generation, preprocessing, feature engineering.
+    \item \texttt{training.py}: Model training functions for all 7 architectures.
+    \item \texttt{forecasting.py}: Iterative multi-step forecasting functions for each model.
+    \item \texttt{tirex\_utils.py}: Dedicated TiRex foundation model loading and zero-shot inference utilities.
+    \item \texttt{metrics.py}: Evaluation modules including MAE, RMSE, MAPE, R², NSE, Diebold-Mariano.
+\end{itemize}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\normalsize
+\chapter{LITERATURE SURVEY AND DATASET STRATEGY}
+\section{Data Layer}
+\vspace{2mm}
+\subsection{US ISO Markets — Real-Time Data Acquisition}
+For the US market, GridOne fetches real-time and historical load data from ISO operators through the \texttt{gridstatus} library. The functions support six major Independent System Operators: CAISO, PJM, MISO, NYISO, SPP, and ISONE. These markets collectively represent approximately 70\% of US electricity consumption and span the most diverse regional demand profiles.
+
+\subsection{India State-Level — Synthetic and Real Data Pipeline}
+India's state-level data presents unique challenges: publicly available granular historical load data is fragmented across POSOCO/NLDC reports. GridOne addresses this with a hybrid data pipeline that combines real data (when available from a local CSV) with a high-fidelity physics-informed synthetic data generator for all 37 states.
+
+\section{Feature Engineering Pipeline}
+\vspace{2mm}
+Feature engineering is the most critical step differentiating model performance. GridOne implements two distinct feature sets — one for the US hourly domain and one for the India daily domain.
+\begin{itemize}
+    \item \textbf{Temporal Features:} Hour, DayOfWeek, Month, DayOfYear, IsWeekend.
+    \item \textbf{Cyclic Encoding:} Sine and cosine projections are used for Month and DayOfWeek to ensure temporal continuity.
+    \item \textbf{Rolling Statistics:} Means and standard deviations of varying windows (e.g., 24h for US, 7d for India).
+\end{itemize}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\normalsize
+\chapter{METHODOLOGY}
+\section{Forecasting Models}
+\vspace{2mm}
+GridOne integrates 7 distinct forecasting model families, each representing a different paradigm in machine learning and time series modeling.
+
+\subsection{Decision Tree \& Random Forest Regressors}
+Serve as interpretable and robust baselines. Random Forest is an ensemble of independent Decision Trees, reducing variance. These models are fast, explainable, and perform well on short horizons.
+
+\subsection{XGBoost Regressor}
+An optimized implementation of gradient boosted trees capturing non-linear interactions between lag features and temporal indicators. It is the primary high-performance model for tabular representations.
+
+\subsection{LSTM Neural Network}
+A two-layer Long Short-Term Memory network capturing temporal dependencies in raw load sequences avoiding manual feature engineering, capturing intraday cyclical patterns efficiently.
+
+\subsection{Hybrid CNN-LSTM (India Daily)}
+A sophisticated two-branch architecture used for the daily forecasting mode, which integrates both State-level and National-level load signals for superior contextual representation.
+
+\subsection{SARIMA}
+Classical statistical time series model extending ARIMA with seasonal components. Used as a baseline and performance floor for checking AI model efficacy.
+
+\subsection{TiRex — xLSTM Foundation Model}
+TiRex is a state-of-the-art foundation model utilizing extended LSTM blocks. It uses Zero-Shot inference on time series data, leveraging massive pre-training corpora.
+
+\subsection{DLinear — Decomposition Linear Model}
+A lightweight model relying on trend-seasonal decomposition followed by simple linear dense layers, rivaling more complex models due to the persistent structural components found in energy grids.
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\normalsize
+\chapter{RESULT AND ANALYSIS}
+\section{Evaluation Metrics}
+\vspace{2mm}
+GridOne computes a comprehensive set of evaluation metrics, balancing classical statistical accuracy measures with domain-specific energy and hydrological validation tools.
+\begin{itemize}
+    \item \textbf{Mean Absolute Percentage Error (MAPE):} A scale-independent relative error allowing comparison across different states.
+    \item \textbf{R² — Coefficient of Determination:} Measures proportion of variance in true load.
+    \item \textbf{Nash-Sutcliffe Efficiency (NSE):} Equivalency to R², widely used in energy systems modeling.
+    \item \textbf{Diebold-Mariano Test:} A formal hypothesis test deciding if accuracy differences between competing models are statistically significant.
+\end{itemize}
+
+\section{Analysis Summary}
+\vspace{2mm}
+Based on testing on ISO hourly data and synthetic State daily data:
+\begin{itemize}
+    \item \textbf{XGBoost} achieves highly reliable $R^2$ scores around 0.90-0.98 on tabular features.
+    \item \textbf{DLinear} provides extremely fast training (0.85-0.95 $R^2$) due to leveraging the simple continuous underlying signals mapping cleanly onto independent linear pathways.
+    \item \textbf{TiRex} avoids failure modes common to transformer methods and easily generalizes in a zero-shot setting across geographic contexts.
+\end{itemize}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\normalsize
+\chapter{CONCLUSION AND FUTURE SCOPE}
+\section{Conclusion}
+GridOne demonstrates that a well-designed, modular forecasting framework can bridge the gap between research-grade algorithms and practical deployment for grid operators in both developed (US ISO) and emerging (Indian state) electricity markets. By combining modern deep learning architectures with robust classical methods, systematic feature engineering, and statistically validated comparison tools, the framework provides both the flexibility for research exploration and the rigor required for operational decision-making.
+
+\section{Future Scope}
+\vspace{2mm}
+\begin{itemize}
+    \item \textbf{Weather Integration:} Incorporate temperature, humidity, and solar irradiance data from APIs. Weather is heavily correlated with user energy demand.
+    \item \textbf{Advanced Transformers:} Integrate architectures such as PatchTST.
+    \item \textbf{Posoco Real Data:} Streamline automatic parsing of Posoco daily generation reports directly into the Indian context.
+    \item \textbf{Spillover Graph Modeling:} Track and compute load transfers across interconnected grid territories.
+\end{itemize}
+
+\newpage
+  \pagestyle{fancy}
+\thisfancypage{%
+  \setlength{\fboxsep}{20pt}\doublebox}{}
+\begin{center}
+    \huge\textbf{REFERENCES}
+\end{center}
+\vspace{10mm}
+\normalsize
+[1] GridStatus.io API Documentation, USA Grid data infrastructure \\
+\hfill\\
+[2] Beck et al., 2024. xLSTM: Extended Long Short-Term Memory for Sequence Modeling \\
+\hfill\\
+[3] Zeng et al., 2022. Are Transformers Effective for Time Series Forecasting? (DLinear) \\
+\hfill\\
+[4] Posoco Indian State Level Generation Grid Historical Load Analytics \\
+\hfill\\
+[5] Diebold, F.X. and Mariano, R.S. (1995) Comparing Predictive Accuracy. Journal of Business \& Economic Statistics.\\
+
+\end{document}

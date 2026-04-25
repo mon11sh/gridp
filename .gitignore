@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+lenv/
+loadforecast_env/
+*.zip
+*.log
+cell_*.txt
+nb_content.txt
+*.ipynb_checkpoints
