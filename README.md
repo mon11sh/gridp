@@ -1,4 +1,5 @@
 # gridp
+## This is a Multi-Modal Predictive analysis project that tries to predict future load in regulated and deregulated countries (India and US)
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1e3a8a', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#1e40af', 'lineColor': '#475569', 'secondaryColor': '#0f172a', 'tertiaryColor': '#f8fafc'}}}%%
 graph TD
